@@ -6,5 +6,5 @@ class SentenceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sentence
-        fields = ('id', 'fd_id', 'content', 'entitys', 'label', 'updatetime',
-                  'uid', 'is_Process')
+        fields = ('id', 'article_id', 'content', 'entitys',
+                  'label', 'updatetime', 'uid', 'is_Process')

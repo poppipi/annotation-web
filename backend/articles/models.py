@@ -12,7 +12,7 @@ class Article(models.Model):
     introduce = models.TextField()
     content = models.TextField()
     word = models.CharField(max_length=50)
-    content_sentense_parser = \
+    content_sentence_parser = \
         models.TextField(null=True, blank=True)
     content_entity = \
         models.TextField(null=True, blank=True)
