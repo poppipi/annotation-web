@@ -51,9 +51,9 @@ INSTALLED_APPS = [
     # local
     'api.apps.ApiConfig',
     'articles.apps.ArticlesConfig',
-    'relations.apps.RelationsConfig',
+#    'relations.apps.RelationsConfig',
     'sentences.apps.SentencesConfig',
-    'entity.apps.EntityConfig',
+#    'entity.apps.EntityConfig',
     'users.apps.UsersConfig',
 ]
 
@@ -90,11 +90,14 @@ WSGI_APPLICATION = 'DataCollection_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'AnnotationWeb',
+        'USER': 'root',
+        'PASSWORD': 'zqc1982',
+        'PORT': 3306,
+        'HOST': '47.95.237.70',
     }
 }
 

@@ -13,6 +13,7 @@ django-allauth = "==0.38.0"
 markdown = "*"
 coreapi = "==2.3.3"
 pyyaml = "==5.1"
+pymysql = "*"
 
 [requires]
 python_version = "3.6"
