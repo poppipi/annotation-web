@@ -1,4 +1,5 @@
 # from django.shortcuts import render
+from django.contrib.auth import get_user_model
 from rest_framework import viewsets
 from articles.models import Article
 from articles.serializers import ArticleSerializer
@@ -8,32 +9,24 @@ from sentences.models import Sentence
 from sentences.serializers import SentenceSerializer
 # from entity.models import Entity
 # from entity.serializers import EntitySerializer
+from .permissions import IsAuthenOrReadOnly
+from users.serializers import UserSerializer
 
-# from .permissions import IsAuthenOrReadOnly
 
 # Create your views here.
 
 
-class ArticleViewSet(viewsets.ReadOnlyModelViewSet):
+class ArticleViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenOrReadOnly,)
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
 
 
-'''
-class RelationViewSet(viewsets.ReadOnlyModelViewSet):
-    # perimission_classes = (IsAuthenOrReadOnly,)
-    queryset = Relation.objects.all()
-    serializer_class = RelationSerializer
-'''
-
-
-class SentenceViewSet(viewsets.ReadOnlyModelViewSet):
+class SentenceViewSet(viewsets.ModelViewSet):
     queryset = Sentence.objects.all()
     serializer_class = SentenceSerializer
 
 
-'''
-class EntityViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Entity.objects.all()
-    serializer_class = EntitySerializer
-'''
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
